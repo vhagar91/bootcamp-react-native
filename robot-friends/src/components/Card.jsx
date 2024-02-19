@@ -4,7 +4,7 @@ class Card extends React.Component {
     render() {
         return (
             <div className="tc bg-light-purple dib br3 pa3 ma2 grow bw2 shadow5">
-                <img alt="robot" src={`https://robohash.org/${this.props.id}?200x200`} />
+                <img alt="robot" src={`https://robohash.org/${this.props.id}?set=set2&200x200`} />
                 <div>
                     <h2>{this.props.name}</h2>
                     <p>{this.props.email}</p>
