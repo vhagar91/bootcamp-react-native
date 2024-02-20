@@ -1,7 +1,7 @@
 import React from "react";
-import RoboList from "./components/RobotList";
-import SearchBox from "./components/SearchBox";
-import Scroll from "./components/Scroll";
+import RoboList from "../components/RobotList";
+import SearchBox from "../components/SearchBox";
+import Scroll from "../components/Scroll";
 
 class App extends React.Component {
     constructor() {
