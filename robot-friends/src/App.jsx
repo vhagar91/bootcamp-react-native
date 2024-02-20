@@ -1,6 +1,7 @@
 import React from "react";
 import RoboList from "./components/RobotList";
 import SearchBox from "./components/SearchBox";
+import Scroll from "./components/Scroll";
 
 class App extends React.Component {
     constructor() {
@@ -26,14 +27,16 @@ class App extends React.Component {
             <div className="tc">
                 <h1 className="xbox-logo"> Los Robertos</h1>
                 <SearchBox searchChange={this.onSearchChange} />
-                <RoboList robots={robotsFiltered} />
+                <Scroll>
+                    <RoboList robots={robotsFiltered} />
+                </Scroll>
             </div>
         )
     }
 
     componentDidMount() {
         fetch('https://jsonplaceholder.typicode.com/users').then(response => response.json())
-        .then(users => this.setState({ robots: users }));
+            .then(users => this.setState({ robots: users }));
     }
 }
 export default App;
