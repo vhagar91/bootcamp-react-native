@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/bootcamp-react-native/robot-friends/static/css/main.3ed30bf6.css",
+    "main.js": "/bootcamp-react-native/robot-friends/static/js/main.6261631e.js",
+    "static/js/453.99d66606.chunk.js": "/bootcamp-react-native/robot-friends/static/js/453.99d66606.chunk.js",
+    "index.html": "/bootcamp-react-native/robot-friends/index.html",
+    "main.3ed30bf6.css.map": "/bootcamp-react-native/robot-friends/static/css/main.3ed30bf6.css.map",
+    "main.6261631e.js.map": "/bootcamp-react-native/robot-friends/static/js/main.6261631e.js.map",
+    "453.99d66606.chunk.js.map": "/bootcamp-react-native/robot-friends/static/js/453.99d66606.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3ed30bf6.css",
+    "static/js/main.6261631e.js"
+  ]
+}
