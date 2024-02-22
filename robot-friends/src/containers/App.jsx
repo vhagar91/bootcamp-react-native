@@ -8,6 +8,7 @@ function App() {
 
     const [robots, setRobots] = useState([]);
     const [searchFilter, setSearchFilter] = useState('');
+    const [count, setCount] = useState(0);
 
     const onSearchChange = (event) => {
         console.log(event.target.value);
@@ -17,7 +18,7 @@ function App() {
     useEffect(() => {
         fetch('https://jsonplaceholder.typicode.com/users').then(response => response.json())
             .then(users => setRobots(users));
-    },[])
+    },[count]) // Only changes if count change
 
     const robotsFiltered = robots.filter(robot => {
         return robot.name.includes(searchFilter);
@@ -26,6 +27,7 @@ function App() {
     return (
         <div className="tc">
             <h1 className="xbox-logo"> Los Robertos</h1>
+            <button onClick={()=> setCount(count +1)}>Click Me</button>
             <SearchBox searchChange={onSearchChange} />
             <Scroll>
                 <ErrorBoundry>
