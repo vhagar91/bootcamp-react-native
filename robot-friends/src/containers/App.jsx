@@ -1,45 +1,41 @@
-import React from "react";
+import { useState, useEffect } from "react";
 import RoboList from "../components/RobotList";
 import SearchBox from "../components/SearchBox";
 import Scroll from "../components/Scroll";
 import ErrorBoundry from "../components/ErrorBoundry";
 
-class App extends React.Component {
-    constructor() {
-        super();
-        this.state = {
-            robots: [],
-            searchFilter: ''
-        }
-    }
+function App() {
 
-    onSearchChange = (event) => {
+    const [robots, setRobots] = useState([]);
+    const [searchFilter, setSearchFilter] = useState('');
+
+    const onSearchChange = (event) => {
         console.log(event.target.value);
-        this.setState({ searchFilter: event.target.value });
-
+        setSearchFilter(event.target.value);
     }
 
-    render() {
-        const robotsFiltered = this.state.robots.filter(robot => {
-            return robot.name.includes(this.state.searchFilter);
-        });
-
-        return (
-            <div className="tc">
-                <h1 className="xbox-logo"> Los Robertos</h1>
-                <SearchBox searchChange={this.onSearchChange} />
-                <Scroll>
-                    <ErrorBoundry>
-                    <RoboList robots={robotsFiltered} />
-                    </ErrorBoundry>
-                </Scroll>
-            </div>
-        )
-    }
-
-    componentDidMount() {
+    useEffect(() => {
         fetch('https://jsonplaceholder.typicode.com/users').then(response => response.json())
-            .then(users => this.setState({ robots: users }));
-    }
+            .then(users => setRobots(users));
+    },[])
+
+    const robotsFiltered = robots.filter(robot => {
+        return robot.name.includes(searchFilter);
+    });
+
+    return (
+        <div className="tc">
+            <h1 className="xbox-logo"> Los Robertos</h1>
+            <SearchBox searchChange={onSearchChange} />
+            <Scroll>
+                <ErrorBoundry>
+                    <RoboList robots={robotsFiltered} />
+                </ErrorBoundry>
+            </Scroll>
+        </div>
+    )
+
+
+
 }
 export default App;
