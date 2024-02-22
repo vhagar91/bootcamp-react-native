@@ -2,6 +2,7 @@ import React from "react";
 import RoboList from "../components/RobotList";
 import SearchBox from "../components/SearchBox";
 import Scroll from "../components/Scroll";
+import ErrorBoundry from "../components/ErrorBoundry";
 
 class App extends React.Component {
     constructor() {
@@ -28,7 +29,9 @@ class App extends React.Component {
                 <h1 className="xbox-logo"> Los Robertos</h1>
                 <SearchBox searchChange={this.onSearchChange} />
                 <Scroll>
+                    <ErrorBoundry>
                     <RoboList robots={robotsFiltered} />
+                    </ErrorBoundry>
                 </Scroll>
             </div>
         )
